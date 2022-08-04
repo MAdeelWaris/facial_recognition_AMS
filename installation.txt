@@ -1,0 +1,37 @@
+Steps:
+
+1- (Optional) First create Virtual Envoirment
+    "python -m venv myvenv"
+    then activate this Envoirment by 
+    "myvenv\Scripts\activate"
+
+2- install dependencies/requirement
+    "pip install -r requirements.txt"
+
+3- After Installing requiremnts, you are good to go
+    By default it used SQLITE3 you can change it in settings.py file
+
+4- Run Migrations
+    "python manage.py makemigrations"
+    "python manage.py makemigrations student_management_app"
+    "python manage.py migrate"
+    python manage.py migrate student_management_app"
+
+5- It will create "database.sqlite3" file in your directory, this is your database file
+
+6- Create Super User
+    "python manage.py creatsuperuser"
+    Enter Credentials of your Choice.
+
+    All Done!!!!!!!!!!
+
+7- Once User is created you can type following command to run server everytime you want to run this project
+    "python manage.py runserver"
+
+8- Login using superuser Credentials you entered before, and thenyou can further create staff/student accounts
+    in Admin dashboard
+
+    
+
+
+

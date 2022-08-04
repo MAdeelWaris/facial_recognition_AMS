@@ -9,7 +9,17 @@ Main Idea::
   Languages used to develop this projects are listed below.
   Frontend: Html/CSS/JS/Jquery/AJAX
   Backend: Django Framework/Python
+
+  Login Credentials
   
+  Email: admin@gmail.com
+  Username: admin
+  Passwd: admin
+
+
+  Please Go to installation.txt file for installation guide.
+  
+
 For further details please refer to Dcoumentation Folder.
 
 
