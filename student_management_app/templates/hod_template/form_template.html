@@ -1,0 +1,66 @@
+<link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
+ <form role="form" action="{{ action_path }}" method="post" enctype="multipart/form-data">
+                  {% csrf_token %}
+                <div class="card-body">
+                  <script src="http://code.jquery.com/jquery-1.9.1.js"></script> 
+                  <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+                  
+                    <!-- <button  class="btn btn-primary btn-block" id="opener" onclick="location.href='{% url 'read_frames' %}'">Capture Frames</button> -->
+                    <!-- <button  class="btn btn-primary btn-block" style="background-color: green;  height: 50px;" id="opener" onclick="location.href='{% url 'read_frames' %}';framescaptured();">Capture Frames</button> -->
+                  
+                    {% for field in form %}
+                  <div class="form-group">
+                      {{ field.errors }}
+                      {{ field.label_tag }}
+                      {{ field }}
+                  </div>
+                    {% endfor %}
+
+                   <div class="form-group">
+                      {% if messages %}
+                        {% for message in messages %}
+                        {% if message.tags == 'error' %}
+                        <div class="alert alert-danger" style="margin-top:10px">{{ message }}</div>
+                        {% endif %}
+                        {% if message.tags == 'success' %}
+                        <div class="alert alert-success" style="margin-top:10px">{{ message }}</div>
+                        {% endif %}
+                        {% endfor %}
+                      {% endif %}
+                    </div>
+
+                </div>
+               
+                <!-- /.card-body -->
+                
+
+                <div class="card-footer">
+                  <button type="submit" class="btn btn-primary btn-block" id="savedata" onclick="framescaptured();">{{ button_text }}</button>
+                </div>
+              </form>
+<script>
+
+
+function framescaptured()
+{
+  // document.getElementById("savedata").disabled = true;
+  alert("Please Wait while System Opens Camera to Capture your Face.");
+  setTimeout(function(){ alert("Data Set is being Collected."); }, 3000);
+  setTimeout(function(){ alert("Please Allign Your Face With Camera."); }, 2000);
+  setTimeout(function(){ alert("Data Set is being Collected."); }, 1000);
+  setTimeout(function(){ alert("Data Set Collected. Now Trainig the Model."); }, 3000);
+  setTimeout(function(){ alert("Model Trained Successfully."); }, 5000);
+  
+
+
+  
+  // alert("Data Set is being Collected.");
+  // alert("Please Allign Your Face With Camera");
+  // alert("Data Set Collected. Now Trainig the Model");
+  // alert("Model Trained Successfully");
+
+  
+}
+</script>
+
+              

@@ -1,0 +1,127 @@
+{% extends 'hod_template/base_template.html' %}
+{% block page_title %}
+Home
+{% endblock page_title %}
+{% block main_content %}
+    <!-- Main content -->
+    <section class="content">
+      <div class="container-fluid">
+          <div class="row">
+          <div class="col-lg-3 col-6">
+            <!-- small box -->
+            <div class="small-box bg-info">
+              <div class="inner">
+                <h3>{{ student_count }}</h3>
+
+                <p>Total Students</p>
+              </div>
+              <div class="icon">
+                <i class="ion ion-pie-graph"></i>
+              </div>
+              <a href="{% url 'manage_student' %}" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+            </div>
+          </div>
+          <!-- ./col -->
+          <div class="col-lg-3 col-6">
+            <!-- small box -->
+            <div class="small-box bg-success">
+              <div class="inner">
+                <h3>{{ staff_count }}</h3>
+
+                <p>Total Staffs</p>
+              </div>
+              <div class="icon">
+                <i class="ion ion-pie-graph"></i>
+              </div>
+              <a href="{% url 'manage_staff' %}" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+            </div>
+          </div>
+          <!-- ./col -->
+          <div class="col-lg-3 col-6">
+            <!-- small box -->
+            <div class="small-box bg-warning">
+              <div class="inner">
+                <h3>{{ course_count }}</h3>
+
+                <p>Total Programs</p>
+              </div>
+              <div class="icon">
+                <i class="ion ion-pie-graph"></i>
+              </div>
+              <a href="{% url 'manage_course' %}" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+            </div>
+          </div>
+          <!-- ./col -->
+          <div class="col-lg-3 col-6">
+            <!-- small box -->
+            <div class="small-box bg-danger">
+              <div class="inner">
+                <h3>{{ subject_count }}</h3>
+
+                <p>Total Classes</p>
+              </div>
+              <div class="icon">
+                <i class="ion ion-pie-graph"></i>
+              </div>
+              <a href="{% url 'manage_subject' %}" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+            </div>
+          </div>
+          <!-- ./col -->
+        </div>
+      </div>
+    </section>
+    <!-- /.content -->
+{% endblock main_content %}
+{% block custom_js %}
+<script>
+    $(document).ready(function(){
+
+            var pieData        = {
+                  labels: [
+                      'Students',
+                      'Staffs'
+                  ],
+                  datasets: [
+                    {
+                      data: [{{ student_count }},{{ staff_count }}],
+                      backgroundColor : ['#f56954', '#00a65a'],
+                    }
+                  ]
+             };
+
+
+
+
+
+
+                //show total student in each course
+                var student_count_list_in_course={{ student_count_list_in_course }};
+
+                  var pieData2        = {
+                          labels:course_name_list,
+                          datasets: [
+                            {
+                              data: student_count_list_in_course,
+                              backgroundColor : ['#f56954', '#00a65a','#aa00ff', '#ff3d00'],
+                            }
+                          ]
+                     };
+
+
+
+                //show total student in each Subject
+                var student_count_list_in_subject={{ student_count_list_in_subject }};
+                var subject_list={{ subject_list|safe }};
+
+                  var pieData3  = {
+                          labels:subject_list,
+                          datasets: [
+                            {
+                              data: student_count_list_in_subject,
+                              backgroundColor : ['#f56954', '#00a65a','#aa00ff', '#ff3d00','#bf360c','#ffff00','#00e676','#40c4ff','#f56954', '#00a65a','#aa00ff', '#ff3d00','#bf360c','#ffff00','#00e676','#40c4ff'],
+                            }
+                          ]
+                     };
+  });
+</script>
+{% endblock custom_js %}
