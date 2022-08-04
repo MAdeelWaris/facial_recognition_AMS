@@ -6,6 +6,10 @@ Main Idea::
   Main idea is to build a Management System that used Camera or Facial Recgnition device to take and record attendances of students in school or colleges level.
   This can further modified for employess attendance management in companies and different offices.
   
+  Languages used to develop this projects are listed below.
+  Frontend: Html/CSS/JS/Jquery/AJAX
+  Backend: Django Framework/Python
+  
 For further details please refer to Dcoumentation Folder.
 
 
